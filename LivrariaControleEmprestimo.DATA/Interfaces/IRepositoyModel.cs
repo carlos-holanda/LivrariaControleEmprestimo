@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LivrariaControleEmprestimo.DATA.Interfaces
 {
-    interface IRepositoyModel<T> where T : class
+    public interface IRepositoyModel<T> where T : class
     {
         List<T> SelecionarTodos();
         T SelecionarPk(params object[] variavel);
