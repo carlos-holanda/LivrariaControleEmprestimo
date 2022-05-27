@@ -49,6 +49,10 @@ namespace LivrariaControleEmprestimo.DATA.Models
                 entity.Property(e => e.CliNome).IsUnicode(false);
 
                 entity.Property(e => e.CliNumero).IsUnicode(false);
+
+                entity.Property(e => e.CliTelefoneCelular).IsUnicode(false);
+
+                entity.Property(e => e.CliTelefoneFixo).IsUnicode(false);
             });
 
             modelBuilder.Entity<Livro>(entity =>
@@ -67,11 +71,13 @@ namespace LivrariaControleEmprestimo.DATA.Models
                 entity.HasOne(d => d.LceIdClienteNavigation)
                     .WithMany(p => p.LivroClienteEmprestimo)
                     .HasForeignKey(d => d.LceIdCliente)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Livro_Cliente_Emprestimo_Livro1");
 
                 entity.HasOne(d => d.LceIdLivroNavigation)
                     .WithMany(p => p.LivroClienteEmprestimo)
                     .HasForeignKey(d => d.LceIdLivro)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Livro_Cliente_Emprestimo_Cliente1");
             });
 

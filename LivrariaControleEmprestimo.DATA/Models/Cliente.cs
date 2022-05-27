@@ -18,30 +18,36 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
+        [Required]
         [Column("cliCPF")]
         [StringLength(14)]
         public string CliCpf { get; set; }
+        [Required]
         [Column("cliNome")]
         [StringLength(100)]
         public string CliNome { get; set; }
+        [Required]
         [Column("cliEndereco")]
         [StringLength(50)]
         public string CliEndereco { get; set; }
+        [Required]
         [Column("cliCidade")]
         [StringLength(50)]
         public string CliCidade { get; set; }
+        [Required]
         [Column("cliBairro")]
         [StringLength(50)]
         public string CliBairro { get; set; }
+        [Required]
         [Column("cliNumero")]
         [StringLength(14)]
         public string CliNumero { get; set; }
         [Column("cliTelefoneCelular")]
-        [MaxLength(14)]
-        public byte[] CliTelefoneCelular { get; set; }
+        [StringLength(14)]
+        public string CliTelefoneCelular { get; set; }
         [Column("cliTelefoneFixo")]
-        [MaxLength(13)]
-        public byte[] CliTelefoneFixo { get; set; }
+        [StringLength(14)]
+        public string CliTelefoneFixo { get; set; }
 
         [InverseProperty("LceIdLivroNavigation")]
         public virtual ICollection<LivroClienteEmprestimo> LivroClienteEmprestimo { get; set; }

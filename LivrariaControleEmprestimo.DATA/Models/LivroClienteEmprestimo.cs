@@ -14,13 +14,13 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        public int? LceIdLivro { get; set; }
-        public int? LceIdCliente { get; set; }
+        public int LceIdLivro { get; set; }
+        public int LceIdCliente { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? LcedataEmprestimo { get; set; }
+        public DateTime LcedataEmprestimo { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? LcedataEntrega { get; set; }
-        public bool? LceEntregue { get; set; }
+        public DateTime LcedataEntrega { get; set; }
+        public bool LceEntregue { get; set; }
 
         [ForeignKey(nameof(LceIdCliente))]
         [InverseProperty(nameof(Livro.LivroClienteEmprestimo))]

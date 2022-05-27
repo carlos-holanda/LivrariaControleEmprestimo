@@ -18,14 +18,18 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
+        [Required]
         [StringLength(50)]
         public string LivroNome { get; set; }
+        [Required]
         [StringLength(100)]
         public string LivroAutor { get; set; }
+        [Required]
         [StringLength(50)]
         public string LivroEditora { get; set; }
         [Column(TypeName = "datetime")]
-        public DateTime? LivroAnoPublicacao { get; set; }
+        public DateTime LivroAnoPublicacao { get; set; }
+        [Required]
         [StringLength(50)]
         public string LivroEdicao { get; set; }
 
