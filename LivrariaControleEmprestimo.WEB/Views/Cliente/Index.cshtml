@@ -18,18 +18,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.CliNome)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.CliEndereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CliCidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CliBairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CliNumero)
-            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.CliTelefoneCelular)
             </th>
@@ -48,18 +36,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CliNome)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.CliEndereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CliCidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CliBairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CliNumero)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CliTelefoneCelular)
             </td>
@@ -67,9 +43,40 @@
                 @Html.DisplayFor(modelItem => item.CliTelefoneFixo)
             </td>
             <td class="row">
-                <a asp-action="Edit" class ="btn btn-success m-1" asp-route-id="@item.Id">Alterar</a>
-                <a asp-action="Details" class ="btn btn-primary m-1" asp-route-id="@item.Id">Detalhes</a>
-                <a asp-action="Delete" class ="btn btn-danger m-1" asp-route-id="@item.Id">Excluir</a>
+
+                <a asp-action="Edit" class="btn btn-success m-1" asp-route-id="@item.Id">Alterar</a>
+                <a asp-action="Details" class="btn btn-primary m-1" asp-route-id="@item.Id">Detalhes</a>
+
+                @*<a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.Id">Excluir</a>*@
+
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#DeleteModal-@item.Id">
+                    Excluir
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="DeleteModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="DeleteModalLabel">Excluir cliente</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Deseja realmente excluir o cliente @item.CliNome?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.Id">Sim</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </td>
         </tr>
 }

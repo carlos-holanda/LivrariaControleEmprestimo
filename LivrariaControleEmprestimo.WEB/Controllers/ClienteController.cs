@@ -65,17 +65,17 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
 
         public IActionResult Delete(int id)
         {
-            Cliente oCliente = oClienteService.oRepositoryCliente.SelecionarPk(id);
-
-            return View(oCliente);
-        }
-
-        [HttpPost]
-        public IActionResult Delete(Cliente model)
-        {
-            oClienteService.oRepositoryCliente.Excluir(model);
+            oClienteService.oRepositoryCliente.Excluir(id);
 
             return RedirectToAction("Index");
         }
+
+        //[HttpPost]
+        //public IActionResult Delete(Cliente model)
+        //{
+        //    oClienteService.oRepositoryCliente.Excluir(model);
+
+        //    return RedirectToAction("Index");
+        //}
     }
 }
