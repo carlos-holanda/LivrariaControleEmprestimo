@@ -32,6 +32,7 @@ namespace LivrariaControleEmprestimo.WEB
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {

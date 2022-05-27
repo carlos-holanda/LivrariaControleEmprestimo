@@ -38,39 +38,41 @@ namespace LivrariaControleEmprestimo.DATA.Models
 
             modelBuilder.Entity<Cliente>(entity =>
             {
-                entity.Property(e => e.Bairro).IsUnicode(false);
+                entity.Property(e => e.CliBairro).IsUnicode(false);
 
-                entity.Property(e => e.Cidade).IsUnicode(false);
+                entity.Property(e => e.CliCidade).IsUnicode(false);
 
-                entity.Property(e => e.Cpf).IsUnicode(false);
+                entity.Property(e => e.CliCpf).IsUnicode(false);
 
-                entity.Property(e => e.Endereco).IsUnicode(false);
+                entity.Property(e => e.CliEndereco).IsUnicode(false);
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.CliNome).IsUnicode(false);
+
+                entity.Property(e => e.CliNumero).IsUnicode(false);
             });
 
             modelBuilder.Entity<Livro>(entity =>
             {
-                entity.Property(e => e.Autor).IsUnicode(false);
+                entity.Property(e => e.LivroAutor).IsUnicode(false);
 
-                entity.Property(e => e.Editora).IsUnicode(false);
+                entity.Property(e => e.LivroEdicao).IsUnicode(false);
 
-                entity.Property(e => e.Nome).IsUnicode(false);
+                entity.Property(e => e.LivroEditora).IsUnicode(false);
+
+                entity.Property(e => e.LivroNome).IsUnicode(false);
             });
 
             modelBuilder.Entity<LivroClienteEmprestimo>(entity =>
             {
-                entity.HasOne(d => d.IdClienteNavigation)
+                entity.HasOne(d => d.LceIdClienteNavigation)
                     .WithMany(p => p.LivroClienteEmprestimo)
-                    .HasForeignKey(d => d.IdCliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Livro_Cliente_Emprestimo_Cliente");
+                    .HasForeignKey(d => d.LceIdCliente)
+                    .HasConstraintName("FK_Livro_Cliente_Emprestimo_Livro1");
 
-                entity.HasOne(d => d.IdLivroNavigation)
+                entity.HasOne(d => d.LceIdLivroNavigation)
                     .WithMany(p => p.LivroClienteEmprestimo)
-                    .HasForeignKey(d => d.IdLivro)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Livro_Cliente_Emprestimo_Livro");
+                    .HasForeignKey(d => d.LceIdLivro)
+                    .HasConstraintName("FK_Livro_Cliente_Emprestimo_Cliente1");
             });
 
             OnModelCreatingPartial(modelBuilder);

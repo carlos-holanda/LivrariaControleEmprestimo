@@ -18,20 +18,18 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        [Required]
-        [Column("nome")]
         [StringLength(50)]
-        public string Nome { get; set; }
-        [Required]
-        [Column("autor")]
+        public string LivroNome { get; set; }
         [StringLength(100)]
-        public string Autor { get; set; }
-        [Required]
-        [Column("editora")]
+        public string LivroAutor { get; set; }
         [StringLength(50)]
-        public string Editora { get; set; }
+        public string LivroEditora { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? LivroAnoPublicacao { get; set; }
+        [StringLength(50)]
+        public string LivroEdicao { get; set; }
 
-        [InverseProperty("IdLivroNavigation")]
+        [InverseProperty("LceIdClienteNavigation")]
         public virtual ICollection<LivroClienteEmprestimo> LivroClienteEmprestimo { get; set; }
     }
 }

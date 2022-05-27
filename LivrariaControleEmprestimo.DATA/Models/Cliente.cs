@@ -18,28 +18,32 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        [Required]
-        [Column("CPF")]
+        [Column("cliCPF")]
         [StringLength(14)]
-        public string Cpf { get; set; }
-        [Required]
-        [Column("nome")]
+        public string CliCpf { get; set; }
+        [Column("cliNome")]
         [StringLength(100)]
-        public string Nome { get; set; }
-        [Required]
-        [Column("endereco")]
+        public string CliNome { get; set; }
+        [Column("cliEndereco")]
         [StringLength(50)]
-        public string Endereco { get; set; }
-        [Required]
-        [Column("cidade")]
+        public string CliEndereco { get; set; }
+        [Column("cliCidade")]
         [StringLength(50)]
-        public string Cidade { get; set; }
-        [Required]
-        [Column("bairro")]
+        public string CliCidade { get; set; }
+        [Column("cliBairro")]
         [StringLength(50)]
-        public string Bairro { get; set; }
+        public string CliBairro { get; set; }
+        [Column("cliNumero")]
+        [StringLength(14)]
+        public string CliNumero { get; set; }
+        [Column("cliTelefoneCelular")]
+        [MaxLength(14)]
+        public byte[] CliTelefoneCelular { get; set; }
+        [Column("cliTelefoneFixo")]
+        [MaxLength(13)]
+        public byte[] CliTelefoneFixo { get; set; }
 
-        [InverseProperty("IdClienteNavigation")]
+        [InverseProperty("LceIdLivroNavigation")]
         public virtual ICollection<LivroClienteEmprestimo> LivroClienteEmprestimo { get; set; }
     }
 }
