@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +18,10 @@ namespace LivrariaControleEmprestimo.DATA.Models
         public int LceIdLivro { get; set; }
         public int LceIdCliente { get; set; }
         [Column(TypeName = "datetime")]
+        [DisplayName("Data de empréstimo")]
         public DateTime LcedataEmprestimo { get; set; }
         [Column(TypeName = "datetime")]
+        [DisplayName("Data de Entrega")]
         public DateTime LcedataEntrega { get; set; }
         public bool LceEntregue { get; set; }
 

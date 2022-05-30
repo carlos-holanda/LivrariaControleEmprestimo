@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -20,17 +21,21 @@ namespace LivrariaControleEmprestimo.DATA.Models
         public int Id { get; set; }
         [Required]
         [StringLength(50)]
+        [DisplayName("Nome")]
         public string LivroNome { get; set; }
         [Required]
         [StringLength(100)]
+        [DisplayName("Autor")]
         public string LivroAutor { get; set; }
         [Required]
         [StringLength(50)]
+        [DisplayName("Editora")]
         public string LivroEditora { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime LivroAnoPublicacao { get; set; }
         [Required]
         [StringLength(50)]
+        [DisplayName("Ano de publicação")]
         public string LivroEdicao { get; set; }
 
         [InverseProperty("LceIdClienteNavigation")]

@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -21,32 +22,40 @@ namespace LivrariaControleEmprestimo.DATA.Models
         [Required]
         [Column("cliCPF")]
         [StringLength(14)]
+        [DisplayName("CPF")] 
         public string CliCpf { get; set; }
         [Required]
         [Column("cliNome")]
         [StringLength(100)]
+        [DisplayName("Nome")]
         public string CliNome { get; set; }
         [Required]
         [Column("cliEndereco")]
         [StringLength(50)]
+        [DisplayName("Endereço")]
         public string CliEndereco { get; set; }
         [Required]
         [Column("cliCidade")]
         [StringLength(50)]
+        [DisplayName("Cidade")]
         public string CliCidade { get; set; }
         [Required]
         [Column("cliBairro")]
         [StringLength(50)]
+        [DisplayName("Bairro")]
         public string CliBairro { get; set; }
         [Required]
         [Column("cliNumero")]
         [StringLength(14)]
+        [DisplayName("Número")]
         public string CliNumero { get; set; }
         [Column("cliTelefoneCelular")]
         [StringLength(14)]
+        [DisplayName("Telefone Celular")]
         public string CliTelefoneCelular { get; set; }
         [Column("cliTelefoneFixo")]
         [StringLength(14)]
+        [DisplayName("Telefone Fixo")]
         public string CliTelefoneFixo { get; set; }
 
         [InverseProperty("LceIdLivroNavigation")]
