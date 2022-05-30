@@ -24,6 +24,10 @@
       {
          "Name": "[dbo].[Livro_Cliente_Emprestimo]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vw_Livro_Cliente_Emprestimo]",
+         "ObjectType": 3
       }
    ],
    "UiHint": "MNSNT051.p_StarTemp",

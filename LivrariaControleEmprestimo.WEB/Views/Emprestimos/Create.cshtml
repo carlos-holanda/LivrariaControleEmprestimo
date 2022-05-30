@@ -1,0 +1,63 @@
+﻿@model LivrariaControleEmprestimo.DATA.Models.VwLivroClienteEmprestimo
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>VwLivroClienteEmprestimo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CliNome" class="control-label"></label>
+                <input asp-for="CliNome" class="form-control" />
+                <span asp-validation-for="CliNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LivroNome" class="control-label"></label>
+                <input asp-for="LivroNome" class="form-control" />
+                <span asp-validation-for="LivroNome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LceIdLivro" class="control-label"></label>
+                <input asp-for="LceIdLivro" class="form-control" />
+                <span asp-validation-for="LceIdLivro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LceIdCliente" class="control-label"></label>
+                <input asp-for="LceIdCliente" class="form-control" />
+                <span asp-validation-for="LceIdCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LcedataEmprestimo" class="control-label"></label>
+                <input asp-for="LcedataEmprestimo" class="form-control" />
+                <span asp-validation-for="LcedataEmprestimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LcedataEntrega" class="control-label"></label>
+                <input asp-for="LcedataEntrega" class="form-control" />
+                <span asp-validation-for="LcedataEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LceEntregue" /> @Html.DisplayNameFor(model => model.LceEntregue)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
