@@ -12,6 +12,10 @@ namespace LivrariaControleEmprestimo.WEB.Models
 
         public Cliente oCliente { get; set; }
 
+        public int idCLiente { get; set; }
+
+        public int idLivro { get; set; }
+
         public DateTime dataEmprestimo { get; set; }
 
         public DateTime dataEntrega { get; set; }
