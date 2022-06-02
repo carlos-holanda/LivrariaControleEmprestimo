@@ -14,11 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div hidden class="form-group">
-                <input asp-for="idCLiente" class="form-control" />
+                <input id="idCliente" asp-for="idCliente" class="form-control" />
             </div>
 
             <div hidden class="form-group">
-                <input asp-for="idLivro" class="form-control" />
+                <input id="idLivro" asp-for="idLivro" class="form-control" />
             </div>
 
             <div class="card">
@@ -44,7 +44,7 @@
                         <tbody>
                             @foreach (var item in Model.oListCliente)
                             {
-                                <tr>
+                                <tr onclick="passIdCliente('@item.Id')">
                                     <td>
                                         @Html.DisplayFor(modelItem => item.CliCpf)
                                     </td>
@@ -92,7 +92,7 @@
                         <tbody>
                             @foreach (var item in Model.oListLivro)
                             {
-                                <tr>
+                                <tr onclick="passIdLivro('@item.Id')">
                                     <td>
                                         @Html.DisplayFor(modelItem => item.LivroNome)
                                     </td>
@@ -125,7 +125,7 @@
                     <div class="col-md">
                         <div class="form-group">
                             <label asp-for="dataEmprestimo" class="control-label"></label>
-                            <input asp-for="dataEmprestimo" class="form-control" />
+                            <input readonly="readonly" asp-for="dataEmprestimo" class="form-control" />
                             <span asp-validation-for="dataEmprestimo" class="text-danger"></span>
                         </div>
                     </div>
@@ -138,9 +138,9 @@
                     </div>
                 </div>
             </div>
-
+            <br />
             <div class="form-group">
-                <input type="submit" value="Novo emprestimo" class="btn btn-primary" />
+                <input type="submit" value="Novo emprestimo" class="btn btn-success" />
             </div>
         </form>
     </div>
@@ -151,7 +151,7 @@
     <script>
         $(document).ready(function () {
             var listClienteTable = $('#listClienteTable').DataTable();
-            var listClienteTable = $('#listLivroTable').DataTable();
+            var listLivroTable = $('#listLivroTable').DataTable();
 
             //tabela Cliente
             $('#listClienteTable tbody').on('click', 'tr', function () {
@@ -170,12 +170,24 @@
                 if ($(this).hasClass('selected')) {
                     $(this).removeClass('selected');
                 } else {
-                    listClienteTable.$('tr.selected').removeClass('selected');
+                    listLivroTable.$('tr.selected').removeClass('selected');
                     $(this).addClass('selected');
                 }
             });
 
         });
+
+        function passIdCliente(idCliente)
+        {
+            console.log(idCliente)
+            document.getElementById('idCliente').value = idCliente;
+        }
+
+        function passIdLivro(idLivro) {
+            console.log(idLivro)
+            document.getElementById('idLivro').value = idLivro;
+        }
+
     </script>
 }
 

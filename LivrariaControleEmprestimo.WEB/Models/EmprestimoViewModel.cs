@@ -12,7 +12,7 @@ namespace LivrariaControleEmprestimo.WEB.Models
 
         public Cliente oCliente { get; set; }
 
-        public int idCLiente { get; set; }
+        public int idCliente { get; set; }
 
         public int idLivro { get; set; }
 
